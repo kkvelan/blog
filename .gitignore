@@ -1,5 +1,22 @@
+# Jekyll / build
 _site/
 .sass-cache/
 .jekyll-cache/
 Gemfile.lock
 *.gem
+
+# Generated locally; not required for remote (content is in _posts/)
+**/preview.html
+
+# content.md not used
+**/content.md
+
+# Editor / IDE (keep local; do not leak to remote)
+.cursor/
+
+# Secrets (never commit)
+.env
+.env.*
+*.token
+.git.token*
+**/.git.token*
