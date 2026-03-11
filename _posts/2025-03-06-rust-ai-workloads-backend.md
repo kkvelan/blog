@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Rust for AI Infrastructure"
-date: 2025-03-10 12:00:00 +0000
+date: 2025-03-06 12:00:00 +0000
 ---
 
 Most conversations about AI focus on models and Python. But once you start building real systems around AI, concurrency, speed and performance become important.
@@ -113,7 +113,7 @@ Agents register or poll the backend for work, stream progress and results back, 
 These crates are commonly used when building Rust backends that sit alongside AI inference or orchestration:
 
 | Crate | Purpose |
-|-------|--------|
+|-------|---------|
 | **tokio** | Async runtime: networking, timers, concurrency |
 | **axum** / **actix-web** | HTTP APIs to expose results or call Python services |
 | **serde** / **serde_json** | Serialization for configs, API payloads, pipeline data |

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CrewAI and Deep Agents for Agentic Discovery"
-date: 2025-03-11 12:00:00 +0000
+date: 2025-03-01 12:00:00 +0000
 ---
 
 Agentic discovery needs more than a single model call: planning, task decomposition, tool use, and coordination with workers that do the actual probing. Frameworks like **CrewAI** and **LangChain Deep Agents** are built for that. This post explains both and uses a concrete system as the example.
