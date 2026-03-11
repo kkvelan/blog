@@ -11,8 +11,8 @@ Gemfile.lock
 # content.md not used
 **/content.md
 
-# Editor / IDE (keep local; do not leak to remote)
-.cursor/
+# Local config (do not push)
+.local-rules/
 
 # Secrets (never commit)
 .env

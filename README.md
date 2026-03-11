@@ -21,7 +21,7 @@ One place for writing random things, what I know, and what I learn. Posts live i
 | `Gemfile` | Jekyll / GitHub Pages deps |
 | `<slug>/` | Per-post folder for images and `preview.html` |
 
-**Never push:** `.cursor/`, `**/preview.html` (if you prefer to keep it local), `_site/`, `.env`, **private tokens**, API keys. These are in `.gitignore`.
+**Never push:** `**/preview.html` (if you prefer to keep it local), `_site/`, `.env`, **private tokens**, API keys. These are in `.gitignore`.
 
 ## Adding a new post
 
@@ -41,7 +41,7 @@ Your content in **Markdown** here...
 
 `![Description]({{ site.baseurl }}/your-slug/image.jpg)`
 
-3. **Preview:** Ask the agent to write **`<slug>/preview.html`** directly from `_posts/YYYY-MM-DD-your-slug.md`. Open that file in a browser to review. No scripts are run.
+3. **Preview:** To review locally, regenerate **`<slug>/preview.html`** from the corresponding post in `_posts/` (e.g. convert the Markdown to HTML and wrap it in the same layout and styles). Open that file in a browser. No scripts are run.
 
 4. Commit and push:
 
