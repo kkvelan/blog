@@ -98,6 +98,16 @@ I am building an agentic vulnerability assessment and discovery system that ties
 
 The system is designed to operate autonomously with minimal human intervention, scaling to thousands of IP addresses via continuous, batch, or scheduled execution. The goal is to reduce reliance on manual effort for probe orchestration, result analysis, and prioritization decisions.
 
+## Architecture
+
+The system is three tiers: **Node.js** frontend, **Python** backend, and **Rust** scanning agents.
+
+- **Frontend (Node.js):** Create campaigns, upload targets, initiate scans, and monitor runs. The UI talks to the backend for orchestration and live status.
+- **Backend (Python):** Orchestration, scheduling, and coordination. It hands work to scanning agents, receives status and progress updates, aggregates results, and drives reasoning or prioritization. Single control plane for the whole system.
+- **Scanning agents (Rust):** Run on separate machines inside the network. Each agent performs the actual probing (nmap, traceroute, tcptraceroute, etc.), coordinates with the backend over the network, and reports status, progress, and results. Rust keeps scanning fast and predictable; the backend and frontend handle workflow and UX.
+
+Agents register or poll the backend for work, stream progress and results back, and scale out by adding more machines. The frontend is where operators create campaigns, upload targets, and initiate scans.
+
 ## Useful Cargo crates for AI backends
 
 These crates are commonly used when building Rust backends that sit alongside AI inference or orchestration:
