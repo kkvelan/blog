@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "When 50 Lines of Code Turn an Application into an AI System: Visibility and Governance for ISO/IEC 42001"
-date: 2025-03-08 12:00:00 +0000
+date: 2026-03-08 12:00:00 +0000
 ---
 
 ![When 50 Lines of Code Turn an Application into an AI System: Visibility and Governance for ISO/IEC 42001]({{ site.baseurl }}/iso-42001-50-lines-ai/image1.webp)

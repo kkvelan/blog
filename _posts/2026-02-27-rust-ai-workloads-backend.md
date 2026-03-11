@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Rust for AI Infrastructure"
-date: 2025-02-27 12:00:00 +0000
+date: 2026-02-27 12:00:00 +0000
 ---
 
 Most conversations about AI focus on models and Python. But once you start building real systems around AI, concurrency, speed and performance become important.

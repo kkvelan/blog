@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Penetration Testing Is Boring: A Perspective for Freshers"
-date: 2025-03-05 12:00:00 +0000
+date: 2026-03-05 12:00:00 +0000
 ---
 
 If you are a fresher looking to get into cybersecurity, especially penetration testing, here is a perspective from the other side: **penetration testing is boring**. Not in a bad way, but in a real way. The job rarely looks like what you see in labs or challenges. This post is for those who want a clearer picture of what the work actually looks like, at least from a lead's perspective.
