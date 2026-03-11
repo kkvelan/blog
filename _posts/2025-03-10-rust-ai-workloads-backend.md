@@ -8,7 +8,7 @@ Most conversations about AI focus on models and Python. But once you start build
 
 ![Rust for AI Infrastructure]({{ site.baseurl }}/rust-ai-workloads-backend/image1.jpeg)
 
-## A practical scenario
+## A Practical Scenario
 
 Suppose you are building an agentic discovery system inside an enterprise network. The system continuously scans and enumerates thousands of internal systems, collects service details, tracks configuration changes, compares historical states, and feeds that data into an AI layer that reasons about risk or prioritization.
 
@@ -16,7 +16,7 @@ The challenge is not just inference.
 
 You need to handle thousands of concurrent network operations, continuous scheduling, data parsing, state comparison, queue management, and long-running reliability. The system must run 24/7 without leaking memory, collapsing under load, or creating unpredictable latency spikes.
 
-## Where Rust fits
+## Where Rust Fits
 
 Rust gives you high-performance networking, controlled concurrency through async runtimes like Tokio, and compile-time guarantees that eliminate many common memory and race-condition problems. When you are managing thousands of parallel tasks (scanning, parsing responses, diffing results, feeding pipelines), those guarantees become extremely valuable.
 
@@ -24,7 +24,7 @@ Another advantage is **predictability**. Systems that continuously process large
 
 In architectures like these, the AI model is just one component. Around it sits a large amount of infrastructure: discovery workers, schedulers, enrichment pipelines, storage layers, and APIs that expose results to analysts or other systems.
 
-## Example: concurrent port scanning with hping3
+## Example: Concurrent Port Scanning with hping3
 
 A typical backend component runs many scans concurrently but shapes traffic so the network and target are not overwhelmed. Below, we run **hping3** for SYN port scanning with bounded concurrency and send results into a channel for downstream processing (e.g. enrichment or an AI risk layer):
 
@@ -108,7 +108,7 @@ The system is three tiers: **Node.js** frontend, **Python** backend, and **Rust*
 
 Agents register or poll the backend for work, stream progress and results back, and scale out by adding more machines. The frontend is where operators create campaigns, upload targets, and initiate scans.
 
-## Useful Cargo crates for AI backends
+## Useful Cargo Crates for AI Backends
 
 These crates are commonly used when building Rust backends that sit alongside AI inference or orchestration:
 
@@ -141,7 +141,7 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 ```
 
-## AI backend services that use Rust
+## AI Backend Services That Use Rust
 
 Several production AI backends and infra projects rely on Rust for speed and reliability:
 
@@ -154,7 +154,7 @@ Several production AI backends and infra projects rely on Rust for speed and rel
 
 These are examples of the split you see in practice: Python for model code and experimentation, Rust for the services that serve, scale, and orchestrate it.
 
-## Python and Rust together
+## Python and Rust Together
 
 The Python ecosystem remains central to AI development. Most model libraries, research tooling, and experimentation frameworks still live there. Python remains excellent for experimentation and model development.
 

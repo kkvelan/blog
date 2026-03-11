@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CrewAI and Deep Agents for agentic discovery"
+title: "CrewAI and Deep Agents for Agentic Discovery"
 date: 2025-03-11 12:00:00 +0000
 ---
 
@@ -8,7 +8,7 @@ Agentic discovery needs more than a single model call: planning, task decomposit
 
 ![CrewAI and Deep Agents for agentic discovery]({{ site.baseurl }}/crewai-deepagents-discovery/image1.png)
 
-## ProbeScout: what we are building and why
+## ProbeScout: What We Are Building and Why
 
 I am building an agentic vulnerability assessment and discovery system (**ProbeScout**) that ties together concurrent scanning, traffic shaping, and an AI layer for risk and prioritization. The pipeline uses **nmap** for port scanning and service discovery, **traceroute** and **tcptraceroute** for target intel and path analysis, and tools like hping3 for SYN probes, with results fed into an AI layer for reasoning about findings.
 
@@ -16,7 +16,7 @@ The system is designed to operate autonomously with minimal human intervention, 
 
 To get there, the orchestration layer must plan campaigns, decompose work into batches or phases, keep context under control when scan output is large, and delegate analysis without overloading a single prompt. That is exactly the kind of workload agent frameworks target: multi-step tasks, tool use, and structured execution. Below we look at **CrewAI** and **Deep Agents** and where they fit in a setup like ProbeScout.
 
-## Where the agent layer runs
+## Where the Agent Layer Runs
 
 ProbeScout runs as three tiers:
 
@@ -42,7 +42,7 @@ The backend uses tools to dispatch work to Rust agents (e.g. "run nmap on this t
 
 The Deep Agents SDK is a standalone library on top of LangChain and uses LangGraph for execution, streaming, and human-in-the-loop. In ProbeScout, running in the Python backend, it would coordinate with Rust scanning agents via your existing APIs, aggregate status and results, and drive what the frontend shows and what work gets sent next.
 
-## How it fits today
+## How It Fits Today
 
 In the current setup, the Node.js frontend is where operators create campaigns, upload targets, and initiate scans. The Python backend runs the orchestration and reasoning; that is where you integrate CrewAI or Deep Agents. They call into your Rust agents (via the same coordination channel you already use for status, progress, and results), handle planning and decomposition, and use file system or backend storage to keep scan output and state manageable. Rust agents stay focused on probing; the backend stays focused on what to run and what it means. Either framework fits this split.
 
