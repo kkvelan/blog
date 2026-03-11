@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Where AI Fits in Red Teaming Workflows"
-date: 2025-03-11 12:00:00 +0000
+date: 2025-03-01 12:00:00 +0000
 ---
 
 A recent discussion with a few red team leads kept coming back to one question: where does AI actually fit in red teaming workflows? Not as a replacement for tradecraft, but as a tool that speeds up the right parts of the job. The answer is not "everywhere," and it is not "nowhere." It is in specific, repeatable tasks where you still own the reasoning and the outcome. Below are the areas we found most practical, plus how to use AI without giving up control or client trust.
