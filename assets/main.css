@@ -49,12 +49,15 @@ body {
 }
 
 .site-nav a {
-  color: var(--muted);
+  color: var(--link);
   text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .site-nav a:hover {
-  color: var(--link);
+  color: var(--text);
+  text-decoration: underline;
 }
 
 .page-content {
@@ -302,15 +305,18 @@ a {
 
 .site-footer .site-footer-nav {
   margin-bottom: 0.75rem;
+  font-size: 1rem;
 }
 
 .site-footer .site-footer-nav a {
   color: var(--link);
   text-decoration: none;
+  font-weight: 500;
 }
 
 .site-footer .site-footer-nav a:hover {
   color: var(--text);
+  text-decoration: underline;
 }
 
 .site-footer .site-footer-credit {
