@@ -355,6 +355,12 @@ a {
   color: var(--muted);
 }
 
+.site-footer .site-footer-analytics-notice {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .site-footer a {
   color: var(--link);
 }

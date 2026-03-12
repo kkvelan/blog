@@ -41,6 +41,9 @@
         <a href="#bottom">Bottom</a>
       </nav>
       <p class="site-footer-credit">{{ site.title }} · built with <a href="https://pages.github.com">GitHub Pages</a></p>
+      {% if site.google_analytics %}
+      <p class="site-footer-analytics-notice">This site uses Google Analytics to understand which content visitors find most useful.</p>
+      {% endif %}
     </div>
   </footer>
 </body>
