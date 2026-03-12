@@ -9,11 +9,13 @@
   {% seo %}
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="wrapper">
       <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav class="site-nav">
         <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="#top">Top</a>
+        <a href="#bottom">Bottom</a>
       </nav>
     </div>
   </header>
@@ -22,10 +24,12 @@
       {{ content }}
     </div>
   </main>
-  <footer class="site-footer">
+  <footer class="site-footer" id="bottom">
     <div class="wrapper">
       <nav class="site-nav site-footer-nav">
         <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="#top">Top</a>
+        <a href="#bottom">Bottom</a>
       </nav>
       <p class="site-footer-credit">{{ site.title }} — built with <a href="https://pages.github.com">GitHub Pages</a></p>
     </div>

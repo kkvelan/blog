@@ -48,6 +48,11 @@ body {
   text-decoration: none;
 }
 
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
 .site-nav a {
   color: var(--link);
   text-decoration: none;
