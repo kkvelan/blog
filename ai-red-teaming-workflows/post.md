@@ -22,7 +22,7 @@ Lateral movement analysis in a Windows domain becomes complex when the environme
 
 ## C2 and Lab Setup
 
-Making simple C2 implants in lab environments is another example. Instead of manually wiring Sliver profiles, writing custom stagers, tweaking compile flags, and setting up a quick control panel, AI can help generate a basic structure faster. It reduces setup effort. **GhostLink** is a C&amp;C platform for red team engagements in this space: AI can help with boilerplate, config generation, and wiring up observers or control panels so you spend more time on operator workflow and OPSEC and less on repetitive setup. But OPSEC awareness, detection impact, and responsible usage remain with the operator.
+Making simple C2 implants in lab environments is another example. Instead of manually wiring Sliver profiles, writing custom stagers, tweaking compile flags, and setting up a quick control panel, AI can help generate a basic structure faster. It reduces setup effort. GhostLink is a C&amp;C platform for red team engagements in this space: AI can help with boilerplate, config generation, and wiring up observers or control panels so you spend more time on operator workflow and OPSEC and less on repetitive setup. But OPSEC awareness, detection impact, and responsible usage remain with the operator.
 
 ![Editing remote process file]({{ site.baseurl }}/ai-red-teaming-workflows/i1.jpeg)
 
