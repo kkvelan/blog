@@ -14,12 +14,54 @@ Gemfile.lock
 # Local config (do not push)
 .local-rules/
 
-# Local editor / IDE config (do not push)
+# Local editor / IDE / tooling (do not push)
 .cursor/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-*
 
-# Secrets (never commit)
+# Local env and API / model config (do not push)
 .env
 .env.*
+.env.local
+.env.development
+.env.test
+.env.production*
+*.env
+**/config/local*
+**/config/secrets*
+.openai/
+openai*
+.claude/
+claude*
+anthropic*
+.anthropic/
+*.api_key
+*api_key*
+antigravity*
+.antigravity/
+
+# DB and local data (do not push)
+*.db
+*.sqlite
+*.sqlite3
+**/db.yml
+**/database.yml
+**/config/database*
+**/local.db
+*.sql.gz
+.dump/
+
+# Tokens and secrets (never commit)
 *.token
 .git.token*
 **/.git.token*
+*.pem
+*.key
+secrets/
+**/secrets/
