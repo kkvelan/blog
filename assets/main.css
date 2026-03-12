@@ -24,10 +24,24 @@ body {
   padding: 0;
 }
 
+/* Content width: comfortable on mobile, wider on large screens (viewport-based, no device detection) */
 .wrapper {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+@media (min-width: 1200px) {
+  .wrapper {
+    max-width: 900px;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .wrapper {
+    max-width: 1000px;
+  }
 }
 
 .site-header {
