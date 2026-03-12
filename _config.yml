@@ -4,6 +4,9 @@ description: "Blog"
 baseurl: "/blog"    # repo is kkvelan/blog → https://kkvelan.github.io/blog
 url: "https://kkvelan.github.io"
 
+# Google Analytics (GA4). Set to your Measurement ID (e.g. G-XXXXXXXXXX) to enable. Leave blank to disable.
+google_analytics: ""
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
