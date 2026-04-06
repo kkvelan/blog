@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 220" role="img" aria-labelledby="t2 d2">
+  <title id="t2">Real mode vs protected mode (simplified)</title>
+  <desc id="d2">Comparison of privilege features.</desc>
+  <rect width="640" height="220" fill="#0d0d0d"/>
+  <text x="320" y="26" text-anchor="middle" fill="#e8e8e8" font-size="15" font-family="system-ui,sans-serif" font-weight="600">x86 after reset: real mode ’ then protected mode (classic bring-up)</text>
+  <rect x="32" y="44" width="272" height="156" rx="8" fill="#2a2520" stroke="#6b5b4f" stroke-width="2"/>
+  <text x="168" y="72" text-anchor="middle" fill="#d4b896" font-size="13" font-family="system-ui,sans-serif" font-weight="600">Real mode (8086-style)</text>
+  <text x="48" y="100" fill="#ccc" font-size="12" font-family="system-ui,sans-serif">" No privilege rings</text>
+  <text x="48" y="122" fill="#ccc" font-size="12" font-family="system-ui,sans-serif">" No kernel-only segment fault</text>
+  <text x="48" y="144" fill="#ccc" font-size="12" font-family="system-ui,sans-serif">" Code can hit low memory (e.g. IVT)</text>
+  <text x="48" y="174" fill="#999" font-size="11" font-family="system-ui,sans-serif">Typical: old DOS-style world</text>
+  <rect x="336" y="44" width="272" height="156" rx="8" fill="#1a2430" stroke="#3d5a80" stroke-width="2"/>
+  <text x="472" y="72" text-anchor="middle" fill="#7eb8ff" font-size="13" font-family="system-ui,sans-serif" font-weight="600">Protected mode</text>
+  <text x="352" y="100" fill="#ccc" font-size="12" font-family="system-ui,sans-serif">" GDT / LDT descriptors (privilege bits)</text>
+  <text x="352" y="122" fill="#ccc" font-size="12" font-family="system-ui,sans-serif">" Selectors + RPL; CPL from CS</text>
+  <text x="352" y="144" fill="#ccc" font-size="12" font-family="system-ui,sans-serif">" CPU can fault illegal segment use</text>
+  <text x="352" y="174" fill="#999" font-size="11" font-family="system-ui,sans-serif">Where RPL shows up in teaching</text>
+</svg>
