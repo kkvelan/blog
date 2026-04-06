@@ -6,9 +6,11 @@ The site is built with Jekyll and GitHub Pages. Posts live in `_posts/`; each po
 
 ## Author workflow (preview first)
 
-1. **Draft** in a topic folder using **`preview.html` only** (open it locally in a browser). `preview.html` is gitignored.
-2. **When pushing to the remote repo** (going live), add **`post.md`** in that folder and **`_posts/YYYY-MM-DD-slug.md`** with the same content, front matter, and image paths adjusted for Jekyll.
+**Rule:** work in **`preview.html` first**. Do **not** create or edit **`post.md`** or **`_posts/`** until you are ready to **publish** (or until you are fixing an already-live post and want the preview to match).
 
-Do not create `post.md` or `_posts/` until publish time unless you are updating an already-published post. While drafting, keep the working copy in **`preview.html`**; treat `post.md` and `_posts/` as the publish step.
+1. **Draft** in a topic folder using **`preview.html` only** (open it locally in a browser). Use **relative** image paths (e.g. `./figure.svg`). `preview.html` is **gitignored** and never goes to GitHub.
+2. **Publish** (go live): copy the content into **`post.md`** in that folder and **`_posts/YYYY-MM-DD-slug.md`**, add Jekyll **front matter**, and change image URLs to **`{{ site.baseurl }}/topic-folder/…`**. Then commit and push.
+
+If something went live without a preview file, add **`preview.html`** anyway so future edits stay on the right path.
 
 **Commit messages:** describe what changed in plain language; keep `git log` readable and professional.
