@@ -17,6 +17,10 @@ These rules apply to **`_posts/`**, topic **`post.md`**, and **`preview.html`** 
 
 - Plain, simple English first. Short sentences when explaining hardware or the kernel.
 
+## SVG figures
+
+- Keep **all text inside `.svg` files ASCII-only** (straight quotes, hyphens, colons). Bad bytes (smart quotes, control characters) can **break rendering** or show empty boxes in browsers.
+
 ## Images in Jekyll posts
 
 - In **`_posts/*.md`** and **`post.md`**, use the **`relative_url`** filter, not raw `site.baseurl` inside Markdown links, so paths resolve on GitHub Pages:

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-labelledby="t1 d1">
-  <title id="t1">Two layers of enforcement</title>
+  <title id="t1">Who checks what: Linux versus CPU</title>
   <desc id="d1">Application and kernel policy versus CPU hardware boundaries.</desc>
   <rect width="640" height="280" fill="#0d0d0d"/>
   <text x="320" y="28" text-anchor="middle" fill="#e8e8e8" font-size="15" font-family="system-ui,sans-serif" font-weight="600">Who checks what?</text>
@@ -8,7 +8,7 @@
   <text x="170" y="108" text-anchor="middle" fill="#c8c8c8" font-size="12" font-family="system-ui,sans-serif">Stores UID, GID, capabilities</text>
   <text x="170" y="132" text-anchor="middle" fill="#c8c8c8" font-size="12" font-family="system-ui,sans-serif">Syscall handlers: allow / deny</text>
   <text x="170" y="156" text-anchor="middle" fill="#c8c8c8" font-size="12" font-family="system-ui,sans-serif">The id command reads this data</text>
-  <text x="170" y="190" text-anchor="middle" fill="#a0a0a0" font-size="11" font-family="system-ui,sans-serif">Does not run on the CPU wires</text>
+  <text x="170" y="190" text-anchor="middle" fill="#a0a0a0" font-size="11" font-family="system-ui,sans-serif">Does not run on CPU silicon</text>
   <text x="170" y="228" text-anchor="middle" fill="#888" font-size="11" font-family="system-ui,sans-serif">Policy &amp; bookkeeping</text>
   <rect x="340" y="48" width="260" height="200" rx="8" fill="#241a1a" stroke="#804040" stroke-width="2"/>
   <text x="470" y="78" text-anchor="middle" fill="#ff9b7a" font-size="13" font-family="system-ui,sans-serif" font-weight="600">CPU / hardware</text>

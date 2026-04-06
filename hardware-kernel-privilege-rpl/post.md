@@ -16,7 +16,7 @@ Years ago, on Linux tests, I kept seeing the same end state:
 
 The interesting question is not the exploit string. It is: what changed in the system? Behind that: who is supposed to stop things, the operating system, the processor, or both?
 
-![Two layers: Linux policy vs CPU hardware rules]({{ '/hardware-kernel-privilege-rpl/layers-hardware-kernel.svg' | relative_url }})
+![Who checks what: Linux software and CPU hardware compared]({{ '/hardware-kernel-privilege-rpl/layers-hardware-kernel.svg' | relative_url }})
 
 ## Two different jobs
 
