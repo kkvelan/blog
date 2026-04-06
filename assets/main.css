@@ -56,6 +56,13 @@ body {
   }
 }
 
+/* Full-bleed pages (e.g. embedded flyer HTML) */
+.wrapper.wrapper--full-width {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .site-header {
   border-bottom: 1px solid var(--border);
   padding: 1rem 0;
@@ -100,10 +107,12 @@ body {
 }
 
 .post-title {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--text);
+  margin: 0 0 0.35rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fafafa;
+  letter-spacing: -0.02em;
 }
 
 .post-meta {
@@ -112,25 +121,36 @@ body {
   font-size: 0.9rem;
 }
 
+/* Body vs headings: keep hierarchy obvious (h3 was nearly same size as body before) */
 .post-content {
-  font-size: 1.125rem;
-  color: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #e8e8e8;
 }
 
 .post-content h2 {
-  font-size: 1.35rem;
-  margin-top: 1.75rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--text);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2.35rem;
+  margin-bottom: 0.75rem;
+  color: #fafafa;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.post-content h2:first-child {
+  margin-top: 0.5rem;
 }
 
 .post-content h3 {
-  font-size: 1.15rem;
-  margin-top: 1.25rem;
-  margin-bottom: 0.35rem;
+  font-size: 1.28rem;
   font-weight: 600;
-  color: var(--text);
+  line-height: 1.35;
+  margin-top: 1.85rem;
+  margin-bottom: 0.5rem;
+  color: #f0f4f8;
 }
 
 .post-content p {
@@ -142,10 +162,38 @@ body {
   padding-left: 1.5rem;
 }
 
+.post-content li {
+  margin-bottom: 0.35rem;
+}
+
+.post-content blockquote {
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid var(--link);
+  background: #141414;
+  color: #dcdcdc;
+  font-size: 0.98rem;
+}
+
+.post-content blockquote p {
+  margin: 0;
+}
+
 /* Images: scale with blog content width, keep aspect ratio */
 .post-content img {
   max-width: 100%;
   width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+/* Inline SVG diagrams (e.g. heap figures in posts) */
+.post-content svg {
+  max-width: 100%;
   height: auto;
   display: block;
   margin-top: 1rem;
@@ -247,6 +295,7 @@ body {
 
 .post-content th {
   font-weight: 600;
+  background: #1e1e1e;
 }
 
 /* Rouge syntax highlighting (GitHub Pages) - multi-colour dark theme */

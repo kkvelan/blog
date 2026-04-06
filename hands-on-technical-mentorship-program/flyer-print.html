@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<!-- Standalone flyer for PDF export (no site chrome). Sync content from preview.html when the flyer changes; or regenerate via the extract script in repo history. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hands-On Technical Mentorship Program</title>
+  <script>
+  if (/[?&]singlepage=1(?:&|$)/.test(location.search)) document.documentElement.classList.add('flyer-single-pdf');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <style>
+    :root {
+      --bg: #1a1d24;
+      --card: #242830;
+      --text: #e8eaed;
+      --muted: #9ca3af;
+      --accent: #f59e0b;
+      --accent-dim: #d97706;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 15px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 2rem 2.5rem;
+      position: relative;
+      page-break-after: always;
+    }
+    .page:last-of-type {
+      page-break-after: auto;
+    }
+
+    h1, .headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .page-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .page-icon {
+      color: var(--accent);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .page-1 .tagline {
+      font-size: 1.5rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .page-1 .main-title {
+      font-size: 2.25rem;
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
+    }
+    .page-1 .subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .page-1 .tracks {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      max-width: 36em;
+    }
+    .page-1 .opening {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .page-1 .section {
+      margin-bottom: 1.5rem;
+    }
+    .page-1 .track-groups p {
+      margin-bottom: 0.35rem;
+    }
+    .page-1 .section h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .page-1 .section p {
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+    .page-1 .section ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .page-1 .section li {
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.25rem;
+    }
+    .page-1 .section li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .gist-line {
+      margin-top: 1.25rem;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .page-8 .gist-line {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .track-page .page-title {
+      font-size: 1.75rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    .track-page .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .track-page .tagline-block {
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .track-page h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin: 1rem 0 0.5rem;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+      padding-bottom: 0.25rem;
+    }
+    .track-page p {
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .track-page ul {
+      list-style: none;
+      margin: 0.35rem 0;
+    }
+    .track-page ul li {
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.2rem;
+    }
+    .track-page ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .page-programmes-list .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .page-programmes-list .page-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .page-programmes-list .programme-list {
+      list-style: decimal;
+      padding-left: 1.5rem;
+      margin: 0;
+    }
+    .page-programmes-list .programme-item {
+      margin-bottom: 1.1rem;
+    }
+    .page-programmes-list .programme-item .name {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 0.15rem;
+    }
+    .page-programmes-list .programme-item .desc {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .page-programmes-list .programme-item .catchy-lines {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .page-programmes-list .programme-item .catchy-lines span {
+      display: block;
+    }
+    .page-8 .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    .page-8 .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .page-8 .section {
+      margin-bottom: 1.25rem;
+    }
+    .page-8 h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .page-8 p, .page-8 ul {
+      margin-bottom: 0.4rem;
+    }
+    .page-8 ul {
+      list-style: none;
+    }
+    .page-8 ul li {
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.2rem;
+    }
+    .page-8 ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .page-8 .contact-box {
+      background: var(--card);
+      padding: 1.25rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      margin: 1.25rem 0;
+    }
+    .page-8 .contact-box a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .page-8 .contact-box .qr-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .page-8 .contact-box .qr-code {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+      background: #fff;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .page-8 .contact-box .qr-code img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .page-8 .footer-line {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    @media print {
+      /* Named pages: avoids a global @page { A4 } overriding the tall sheet in single-page mode */
+      @page flyer_sheet_a4 {
+        margin: 0;
+        size: A4;
+      }
+      @page flyer_sheet_tall {
+        margin: 5mm;
+        /* One continuous PDF page; raise second value if preview still splits (browser limits vary) */
+        size: 210mm 20000mm;
+      }
+
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #1a1d24 !important;
+        min-height: 100%;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      html:not(.flyer-single-pdf) .mentorship-flyer-content section.page {
+        page: flyer_sheet_a4;
+        margin: 0;
+        min-height: 100vh;
+        min-height: 297mm;
+        padding: 1.2rem 1.5rem;
+        page-break-after: always;
+        background: #1a1d24 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      html:not(.flyer-single-pdf) .mentorship-flyer-content section.page:last-of-type {
+        page-break-after: auto;
+      }
+
+      html.flyer-single-pdf,
+      html.flyer-single-pdf body {
+        height: auto !important;
+        min-height: 0 !important;
+      }
+      html.flyer-single-pdf .mentorship-flyer-content {
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      html.flyer-single-pdf .mentorship-flyer-content section.page {
+        page: flyer_sheet_tall;
+        margin: 0;
+        min-height: 0 !important;
+        padding: 1.2rem 1.5rem;
+        page-break-after: auto !important;
+        page-break-before: auto !important;
+        break-inside: auto !important;
+        background: #1a1d24 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      /* Full-viewport flex on page 1 becomes a print fragment trap; flatten for single sheet */
+      html.flyer-single-pdf .mentorship-flyer-content section.page-1 {
+        display: block !important;
+        justify-content: flex-start !important;
+        min-height: 0 !important;
+      }
+      /* Discourage hard breaks between flyer sections on one tall sheet */
+      html.flyer-single-pdf .mentorship-flyer-content section.page:not(:first-of-type) {
+        page-break-before: avoid !important;
+        break-before: avoid-page !important;
+      }
+      html.flyer-single-pdf .mentorship-flyer-content section.page:not(:last-of-type) {
+        page-break-after: avoid !important;
+        break-after: avoid-page !important;
+      }
+      /* Fit Page 1, Page 2, Red Team, Join the Program on one printed page each */
+      .page-1 {
+        padding: 1rem 1.5rem;
+      }
+      .page-1 .tagline { font-size: 1.2rem; margin-bottom: 0.25rem; }
+      .page-1 .main-title { font-size: 1.85rem; margin-bottom: 0.2rem; }
+      .page-1 .subtitle { font-size: 1rem; margin-bottom: 0.9rem; }
+      .page-1 .tracks { font-size: 0.85rem; margin-bottom: 0.9rem; }
+      .page-1 .opening { margin-bottom: 0.9rem; font-size: 1rem; }
+      .page-1 .section { margin-bottom: 0.7rem; }
+      .page-1 .section h2 { font-size: 0.9rem; margin-bottom: 0.35rem; }
+      .page-1 .section p { margin-bottom: 0.25rem; font-size: 0.9rem; line-height: 1.35; }
+      .page-1 .section ul { margin-top: 0.25rem; }
+      .page-1 .section li { margin-bottom: 0.15rem; font-size: 0.9rem; }
+      .page-1 .gist-line { margin-top: 0.6rem; font-size: 0.85rem; }
+
+      .page-programmes-list {
+        padding: 0.6rem 1.25rem;
+      }
+      .page-programmes-list .page-icon { font-size: 1.25rem; margin-bottom: 0.25rem; }
+      .page-programmes-list .page-title { font-size: 1.35rem; margin-bottom: 0.2rem; }
+      .page-programmes-list .page-subtitle { font-size: 0.8rem; margin-bottom: 0.5rem; }
+      .page-programmes-list .programme-list { padding-left: 1.25rem; }
+      .page-programmes-list .programme-item { margin-bottom: 0.28rem; }
+      .page-programmes-list .programme-item .name { font-size: 0.9rem; margin-bottom: 0.05rem; }
+      .page-programmes-list .programme-item .desc { font-size: 0.78rem; margin-bottom: 0.1rem; }
+      .page-programmes-list .programme-item .catchy-lines { font-size: 0.68rem; line-height: 1.2; }
+      .page-programmes-list .programme-item .catchy-lines span { display: inline; }
+      .page-programmes-list .programme-item .catchy-lines span::after { content: " "; }
+      .page-programmes-list .programme-item .catchy-lines span:last-child::after { content: none; }
+
+      .page-red-team {
+        padding: 1rem 1.5rem;
+      }
+      .page-red-team .page-title { font-size: 1.5rem; margin-bottom: 0.2rem; }
+      .page-red-team .page-subtitle { font-size: 0.85rem; margin-bottom: 0.5rem; }
+      .page-red-team .tagline-block { margin-bottom: 0.5rem; font-size: 0.9rem; line-height: 1.35; }
+      .page-red-team h3 { font-size: 0.8rem; margin: 0.5rem 0 0.3rem; padding-bottom: 0.15rem; }
+      .page-red-team p { margin-bottom: 0.3rem; font-size: 0.85rem; line-height: 1.35; }
+      .page-red-team ul { margin: 0.2rem 0; }
+      .page-red-team ul li { margin-bottom: 0.12rem; font-size: 0.85rem; }
+
+      .page-8 {
+        padding: 1rem 1.5rem;
+      }
+      .page-8 .page-title { font-size: 1.5rem; margin-bottom: 0.2rem; }
+      .page-8 .page-subtitle { font-size: 0.85rem; margin-bottom: 0.5rem; }
+      .page-8 h2 { font-size: 0.9rem; margin: 0.5rem 0 0.3rem; }
+      .page-8 p, .page-8 ul { margin-bottom: 0.25rem; font-size: 0.85rem; line-height: 1.35; }
+      .page-8 ul li { margin-bottom: 0.12rem; }
+      .page-8 .contact-box { margin-top: 0.5rem; }
+      .page-8 .gist-line, .page-8 .footer-line { margin-top: 0.5rem; font-size: 0.85rem; }
+    }
+  </style>
+  <!-- Print → Save as PDF. Multi-page: default. One long sheet: add ?singlepage=1 to this file URL. -->
+</head>
+<body>
+  <main class="mentorship-flyer-content">
+<section class="page page-1">
+    <i class="fa-solid fa-graduation-cap page-icon" aria-hidden="true"></i>
+    <div class="tagline">Build • Break • Engineer</div>
+    <h1 class="main-title">Hands-On Technical Mentorship Program</h1>
+    <p class="subtitle">Learn differently. Learn the hard way. See the difference.</p>
+
+    <div class="section track-groups">
+      <h2>Tracks</h2>
+      <p><strong>Track 1 – Programming:</strong> Under the Hood (C) · Built to Last (Rust)</p>
+      <p><strong>Track 2 – Security:</strong> Think Like an Attacker · Break the App · Inside the Beast · Own the OS · Secure the Cloud · Shift Left · Red Team, AI Edge</p>
+      <p><strong>Track 3 – AI:</strong> AI That Ships</p>
+    </div>
+    <p class="opening">Opening Summer Mentorship Slots - Only for College Graduates</p>
+
+    <div class="section">
+      <h2>What This Program Is</h2>
+      <p>This is not online training. No one will teach you from slides or run you through labs. You learn by doing, getting stuck, and then working through it. That is the difference. Guidance is tailored to each individual. With more than two decades in the industry, the mentor knows what the industry expects; these programmes are aimed at that.</p>
+      <p><strong>Programming:</strong> You will not learn by watching. You will write real code and build real systems in C and Rust.</p>
+      <p><strong>Security:</strong> You will not only study vulnerabilities. You will find and fix them in networks, apps, malware, cloud, and pipelines. Think like an attacker; defend like an engineer.</p>
+      <p><strong>AI:</strong> You will not just watch demos. You will build with real models and ship AI that works.</p>
+    </div>
+
+    <div class="section">
+      <h2>Program Design</h2>
+      <p>You attempt the problems first. You struggle with the code, tools, or techniques. Then we discuss the approach, correct mistakes, and improve the solution. The structure is there; the hard work is yours. We recommend 120 to 150 days for good coverage of a programme and completion of the capstone project.</p>
+      <p>The difference comes from:</p>
+      <ul>
+        <li>Real-world problem statements you tackle yourself</li>
+        <li>Direct technical discussions after you have tried</li>
+        <li>Debugging and troubleshooting your own code</li>
+        <li>Review of your work and progress when you have something to show</li>
+      </ul>
+      <p>This is not an online program. This is how you learn differently.</p>
+    </div>
+
+    <div class="section">
+      <h2>Certification</h2>
+      <p>Certificates of Completion are issued only after the capstone project is completed and demonstrated. This program is not attendance-based.</p>
+      <p>Certification requires:</p>
+      <ul>
+        <li>Completion of the assigned capstone project</li>
+        <li>Technical demonstration of the work</li>
+        <li>Clear understanding of the technical implementation</li>
+      </ul>
+      <p><strong>No capstone. No certification.</strong></p>
+    </div>
+    <p class="gist-line">This is just the gist. Enroll to gain the full depth.</p>
+  </section>
+
+  <!-- PAGE 2: Programme list -->
+  <section class="page page-programmes-list">
+    <i class="fa-solid fa-list page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Programmes</h1>
+    <p class="page-subtitle">Ten programmes across three tracks. Hands-on.</p>
+    <ol class="programme-list">
+      <li class="programme-item">
+        <span class="name">Under the Hood</span>
+        <span class="desc">C Programming & System Programming</span>
+        <div class="catchy-lines"><span>Write real code. Debug real crashes. Own the machine.</span><span>Build utilities that run at the core of systems.</span><span>Build a mini shell, log parser, or packet sniffer.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">Built to Last</span>
+        <span class="desc">Rust & Modern Systems Development</span>
+        <div class="catchy-lines"><span>Safe, fast, reliable. No garbage collector, no compromise.</span><span>Backend services and CLI tools that ship.</span><span>Build a production-style API or async scanner.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">Think Like an Attacker</span>
+        <span class="desc">Network & Server Penetration Testing</span>
+        <div class="catchy-lines"><span>Find what’s exposed. Pivot. Escalate. Document.</span><span>Real infrastructure, real attack chains, lab-only.</span><span>Deliver a full engagement report or enum toolkit.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">Break the App</span>
+        <span class="desc">Application & Web Security Testing</span>
+        <div class="catchy-lines"><span>Auth, APIs, logic flaws. Break them before attackers do.</span><span>Manual testing and professional reports.</span><span>Build an app, then break it and fix it.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">Inside the Beast</span>
+        <span class="desc">Malware Analysis & Reverse Engineering</span>
+        <div class="catchy-lines"><span>Static and dynamic analysis. PE, assembly, IOCs.</span><span>See how malware really behaves in a safe lab.</span><span>Reverse a sample and document the kill chain.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">Own the OS</span>
+        <span class="desc">Secure Systems - Linux, BSD & Windows</span>
+        <div class="catchy-lines"><span>Harden and reason about Linux, BSD, and Windows.</span><span>Attack surface, configuration, scripting on real systems.</span><span>Deliver a hardening guide or secure baseline.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">Secure the Cloud</span>
+        <span class="desc">Cloud Security</span>
+        <div class="catchy-lines"><span>IAM, misconfigs, network. Build secure, find weak.</span><span>AWS, Azure, or GCP in lab environments.</span><span>Design secure architecture or deliver an assessment report.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">Shift Left</span>
+        <span class="desc">DevSecOps / Secure SDLC</span>
+        <div class="catchy-lines"><span>SAST, SCA, pipelines. Security in the build.</span><span>Fix findings, reduce risk before production.</span><span>Secure a pipeline and document the journey.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">Red Team, AI Edge</span>
+        <span class="desc">Classical Red Teaming Using AI</span>
+        <div class="catchy-lines"><span>Phish, macros, C2. AI speeds the build; you run the op.</span><span>Authorised only. Lab environments, clear scope.</span><span>Deliver a full red team report with AI-assisted phases.</span></div>
+      </li>
+      <li class="programme-item">
+        <span class="name">AI That Ships</span>
+        <span class="desc">Hands-On AI & Systems Engineering</span>
+        <div class="catchy-lines"><span>RAG, agents, local LLMs. Real models, real products.</span><span>From prototype to something users can run.</span><span>Build a RAG app, multi-agent workflow, or AI pipeline.</span></div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- PAGE 3: C Programming -->
+  <section class="page track-page">
+    <i class="fa-solid fa-gears page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Under the Hood</h1>
+    <p class="page-subtitle">C Programming & System Programming</p>
+    <p class="tagline-block">Build real system utilities. Debug crashes and memory problems. Understand how programs actually run.</p>
+
+    <h3>Theme</h3>
+    <p>Understanding how computers actually execute programs. Focus on memory behavior, pointers, debugging, system interaction, and writing efficient system-level code.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>C program structure and compilation model</li>
+      <li>Memory layout (stack vs heap)</li>
+      <li>Pointers and pointer arithmetic</li>
+      <li>Dynamic memory management (malloc / free)</li>
+      <li>File I/O and system interaction</li>
+      <li>Modular programming and multi-file projects</li>
+      <li>Debugging techniques and program tracing</li>
+      <li>Implementing core data structures directly in C</li>
+      <li>Socket programming fundamentals (TCP / UDP basics)</li>
+    </ul>
+
+    <h3>Real System Implementation</h3>
+    <p>You will implement core data structures and algorithms directly in C. These components will be integrated into small system utilities that process files, network data, or system input. Typical concepts explored include: linked list structures used in low-level system components; hash tables for fast lookup; buffer management techniques; file indexing approaches. You will implement these components yourself, integrate them into working programs, and debug them when they fail.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Terminal-based text editor (similar to a simplified nano)</li>
+      <li>Secure file transfer utility for Linux systems</li>
+      <li>Mini shell for Linux command execution</li>
+      <li>High-speed log parser for large log files</li>
+      <li>Packet sniffer using libpcap (tcpdump-style)</li>
+      <li>Simple network port scanner</li>
+      <li>Configuration file parser and validator</li>
+    </ul>
+  </section>
+
+  <!-- PAGE 4: Rust -->
+  <section class="page track-page">
+    <i class="fa-solid fa-shield-halved page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Built to Last</h1>
+    <p class="page-subtitle">Rust & Modern Systems Development</p>
+    <p class="tagline-block">Build high-performance systems. Write memory-safe concurrent programs. Design reliable backend and system tools.</p>
+
+    <h3>Theme</h3>
+    <p>Building high-performance systems with memory safety. Focus on ownership, concurrency, and reliable systems programming.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Rust program structure and Cargo ecosystem</li>
+      <li>Ownership and borrowing model</li>
+      <li>Lifetimes and memory safety</li>
+      <li>Error handling patterns (Result / Option)</li>
+      <li>Modular project structure and crate design</li>
+      <li>Concurrency and asynchronous programming (Tokio)</li>
+      <li>Building command-line tools and system utilities</li>
+      <li>Backend services and REST APIs in Rust</li>
+    </ul>
+
+    <h3>Real System Implementation</h3>
+    <p>You will build real tools and services using Rust. Programs will focus on reliability, performance, and safe concurrency. Typical concepts explored include: safe memory management using the ownership model; concurrent task execution using async runtimes; efficient request handling in backend services; data processing pipelines with controlled resource usage.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Production-style backend service with REST APIs and database integration (Axum / Actix)</li>
+      <li>High-performance asynchronous network scanner using Tokio</li>
+      <li>Terminal-based system monitoring dashboard using Ratatui</li>
+      <li>Concurrent file processing pipeline using async Rust</li>
+      <li>Network traffic analysis tool using asynchronous packet processing</li>
+      <li>AI inference API service for high-performance request handling</li>
+    </ul>
+  </section>
+
+  <!-- PAGE 5: Network & Server Pentest -->
+  <section class="page track-page">
+    <i class="fa-solid fa-user-secret page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Think Like an Attacker</h1>
+    <p class="page-subtitle">Network & Server Penetration Testing</p>
+    <p class="tagline-block">Discover exposed services and hidden attack paths. Analyze systems the way attackers do. Understand how real infrastructure gets compromised.</p>
+
+    <h3>Theme</h3>
+    <p>Understanding how attackers discover weaknesses in networks and server infrastructure. Focus on reconnaissance, service analysis, exploitation techniques, and documenting security weaknesses.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Network discovery and host enumeration</li>
+      <li>Service identification and attack surface analysis</li>
+      <li>Linux and Windows server attack surfaces</li>
+      <li>Credential attacks and lateral movement concepts</li>
+      <li>Privilege escalation techniques</li>
+      <li>PowerShell and shell environments</li>
+      <li>Manual penetration testing workflow</li>
+      <li>Vulnerability documentation and reporting</li>
+    </ul>
+
+    <h3>Real Attack Analysis</h3>
+    <p>You will analyze how weaknesses in networks and servers are discovered and exploited. Exercises focus on identifying exposed services, misconfigurations, and privilege escalation paths. Typical areas explored include: service enumeration and version analysis; authentication weaknesses; misconfigured services and permissions; privilege escalation paths. Students reproduce attack paths in controlled lab environments and document the full attack chain.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Simulated enterprise network compromise with full attack chain documentation</li>
+      <li>Multi-host penetration testing scenario</li>
+      <li>Server privilege escalation research and exploitation report</li>
+      <li>Automated network enumeration toolkit</li>
+      <li>Network attack simulation with complete security assessment report</li>
+    </ul>
+  </section>
+
+  <!-- PAGE 6: Application Pentest -->
+  <section class="page track-page">
+    <i class="fa-solid fa-virus page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Break the App</h1>
+    <p class="page-subtitle">Application & Web Security Testing</p>
+    <p class="tagline-block">Break authentication and access controls. Analyze how modern applications fail under attack. Understand the real impact of insecure design.</p>
+
+    <h3>Theme</h3>
+    <p>Understanding how web applications fail under attack. Focus on authentication, authorization, APIs, logic vulnerabilities, and analyzing the real-world impact of insecure application design.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Web architecture and HTTP fundamentals</li>
+      <li>Authentication mechanisms and session management</li>
+      <li>Authorization and access control failures</li>
+      <li>REST API security testing and abuse scenarios</li>
+      <li>Injection vulnerabilities and input handling failures</li>
+      <li>Business logic vulnerabilities</li>
+      <li>Manual web application testing workflow</li>
+      <li>Vulnerability documentation and secure design practices</li>
+    </ul>
+
+    <h3>Real Application Analysis</h3>
+    <p>You will analyze how modern web applications expose vulnerabilities. Exercises focus on identifying weaknesses in authentication flows, API endpoints, and application logic. Typical areas explored include: authentication bypass scenarios; access control weaknesses; API endpoint misuse; logic flaws in application workflows.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Build a full-stack web application and analyze its security weaknesses</li>
+      <li>Authentication and authorization bypass research project</li>
+      <li>REST API abuse and security testing scenario</li>
+      <li>Business logic vulnerability analysis</li>
+      <li>Full vulnerability assessment of a web application with a professional security report</li>
+    </ul>
+  </section>
+
+  <!-- PAGE 7: Malware Analysis -->
+  <section class="page track-page">
+    <i class="fa-solid fa-bug page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Inside the Beast</h1>
+    <p class="page-subtitle">Malware Analysis & Reverse Engineering</p>
+    <p class="tagline-block">Analyze how malicious software behaves. Understand how malware evades detection. Learn how attackers design malicious code.</p>
+
+    <h3>Theme</h3>
+    <p>Understanding how malicious software works internally. Focus on reverse engineering, behavioral analysis, and identifying how malware interacts with operating systems.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Malware execution flow and attack stages</li>
+      <li>Static malware analysis techniques</li>
+      <li>Dynamic malware analysis techniques</li>
+      <li>Portable Executable (PE) file structure</li>
+      <li>Assembly fundamentals for malware analysts</li>
+      <li>Sandbox environments and behavioral monitoring</li>
+      <li>Indicators of compromise and artifact analysis</li>
+      <li>Malware documentation and reporting</li>
+    </ul>
+
+    <h3>Real Malware Analysis</h3>
+    <p>You will analyze how malware operates within controlled analysis environments. Exercises focus on identifying execution behavior, persistence mechanisms, and extracting indicators of compromise (IOCs). Typical concepts explored include: process execution and memory behavior; file system and registry modifications; network communication patterns; extraction of IOCs; process injection and process hollowing. Students analyze these behaviors in controlled lab environments and document the technical findings.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Reverse engineer a malware sample and document execution behavior</li>
+      <li>Ransomware behavior analysis report</li>
+      <li>Malware analysis lab and sandbox environment setup</li>
+      <li>Malicious document attack chain analysis</li>
+    </ul>
+  </section>
+
+  <!-- PAGE 8: Own the OS -->
+  <section class="page track-page">
+    <i class="fa-solid fa-server page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Own the OS</h1>
+    <p class="page-subtitle">Secure Systems - Linux, BSD & Windows</p>
+    <p class="tagline-block">Harden and understand Linux, BSD, and Windows from a security and systems perspective. Attack surface, configuration, scripting, and how things actually work on each OS. Build and break real systems across the three platforms.</p>
+
+    <h3>Theme</h3>
+    <p>Understanding how to secure and reason about Linux, BSD, and Windows at the systems level. Focus on hardening, secure configuration, attack surface, and misconfigurations. You will work with real installations (lab or VM) to harden systems, find weak spots, and document what matters.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Security fundamentals across Linux, BSD, and Windows</li>
+      <li>Hardening and secure configuration (services, permissions, auth)</li>
+      <li>Attack surface and common misconfigurations</li>
+      <li>User and privilege model; authentication and access control</li>
+      <li>Scripting and automation for security and ops (shell, basic automation)</li>
+      <li>Logging and audit (what to enable, where to look)</li>
+      <li>Comparing security posture and trade-offs across the three OSes</li>
+      <li>Network and service exposure; firewall and access policies</li>
+    </ul>
+
+    <h3>Real Systems Work</h3>
+    <p>You will work with real Linux, BSD, and/or Windows systems in lab or VM environments. Exercises focus on hardening systems, identifying misconfigurations, and documenting findings. Typical areas: unnecessary services and open ports; weak or default credentials; permission and privilege issues; logging and audit configuration.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Hardening guide or hardened image for one or more of Linux, BSD, Windows</li>
+      <li>Attack surface assessment and remediation report for a lab system</li>
+      <li>Cross-platform automation or hardening script set (e.g. baseline checks)</li>
+      <li>Secure baseline documentation for a specific use case (e.g. server, workstation)</li>
+      <li>Comparison report: same workload secured on Linux vs BSD vs Windows with recommendations</li>
+    </ul>
+  </section>
+
+  <!-- PAGE 9: Cloud Security -->
+  <section class="page track-page">
+    <i class="fa-solid fa-cloud page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Secure the Cloud</h1>
+    <p class="page-subtitle">Cloud Security</p>
+    <p class="tagline-block">Secure and assess cloud environments (AWS, Azure, GCP). Understand identity, misconfigurations, and attack paths. Build and break real cloud setups.</p>
+
+    <h3>Theme</h3>
+    <p>Understanding how cloud infrastructure is secured and how it is attacked. Focus on identity and access, misconfigurations, network exposure, and secure design. You will work with real cloud providers in lab environments to build secure patterns and to find and fix weaknesses.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Cloud provider fundamentals (identity, regions, networking)</li>
+      <li>Identity and access management (IAM, roles, policies, federation)</li>
+      <li>Common misconfigurations and insecure defaults</li>
+      <li>Storage and database security in the cloud</li>
+      <li>Network security (VPCs, security groups, segmentation)</li>
+      <li>Container and serverless security basics</li>
+      <li>Cloud security assessment and reconnaissance</li>
+      <li>Secure architecture patterns and hardening</li>
+    </ul>
+
+    <h3>Real Cloud Security Work</h3>
+    <p>You will work with real cloud environments in lab or personal accounts. Exercises focus on building secure configurations, identifying misconfigurations, and documenting findings. Typical areas: overly permissive IAM; exposed storage or APIs; network misconfigurations; insecure identity patterns.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Secure multi-account cloud architecture design and implementation</li>
+      <li>Cloud security assessment report (IAM, storage, network) for a lab environment</li>
+      <li>Automated misconfiguration scanner or checker for a cloud provider</li>
+      <li>Incident response runbook for a cloud-based workload</li>
+      <li>Comparison of secure patterns across AWS / Azure / GCP with recommendations</li>
+    </ul>
+
+    <h3>Cloud & Infrastructure Note</h3>
+    <p>This track requires access to at least one major cloud provider (AWS, Azure, or GCP). You will need a cloud account for exercises and capstones. Free tier or trial accounts are often sufficient; some usage may incur cost beyond free tier. Participants should be prepared to manage minimal cloud usage for their own practice and projects.</p>
+  </section>
+
+  <!-- PAGE 10: DevSecOps / Secure SDLC -->
+  <section class="page track-page">
+    <i class="fa-solid fa-code-branch page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Shift Left</h1>
+    <p class="page-subtitle">DevSecOps / Secure SDLC</p>
+    <p class="tagline-block">Build security into the development pipeline. Use SAST, DAST, and supply chain practices. Ship code that is secure by design.</p>
+
+    <h3>Theme</h3>
+    <p>Understanding how security is integrated into the software development lifecycle. Focus on secure SDLC, CI/CD security, automated testing (SAST, DAST, SCA), supply chain security, and secure coding practices. You will work with real pipelines and tools to add security checks and fix findings.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Secure SDLC and shift-left concepts</li>
+      <li>CI/CD fundamentals and pipeline security</li>
+      <li>Static application security testing (SAST) and code analysis</li>
+      <li>Dynamic testing and dependency/SCA (software composition analysis)</li>
+      <li>Supply chain security (dependencies, containers, signing)</li>
+      <li>Secure coding practices and remediation</li>
+      <li>Security gates and policy as code</li>
+      <li>Vulnerability management and prioritisation in development</li>
+    </ul>
+
+    <h3>Real Pipeline and Code Security</h3>
+    <p>You will work with real or sample codebases and pipelines. Exercises focus on adding security tooling, fixing reported issues, and understanding trade-offs. Typical areas: integrating SAST or SCA; fixing findings and reducing false positives; securing build and deploy; reviewing dependencies and upgrade policies.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Add security tooling (SAST/SCA) to an existing CI/CD pipeline and document findings</li>
+      <li>Secure a sample application and its pipeline end to end with a written report</li>
+      <li>Supply chain security assessment (dependencies, container image) with recommendations</li>
+      <li>Custom security gate or policy (e.g. branch protection, image signing) with documentation</li>
+      <li>Vulnerability management playbook for a development team</li>
+    </ul>
+  </section>
+
+  <!-- PAGE 11: Red Teaming Using AI -->
+  <section class="page track-page page-red-team">
+    <i class="fa-solid fa-robot page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Red Team, AI Edge</h1>
+    <p class="page-subtitle">Classical Red Teaming Using AI</p>
+    <p class="tagline-block">Run real red team engagements. Use AI to build phishing lures, generate macros, and create C2 and implants. Learn classical attack chains with AI accelerating the build.</p>
+
+    <h3>Prerequisites</h3>
+    <p>This track requires access to commercial AI models. Participants should subscribe to commercial LLM services as needed to create artefacts, design and implement C2s, and complete the hands-on exercises.</p>
+
+    <h3>Theme</h3>
+    <p>Classical red teaming (phishing, initial access, C2, implants, persistence, lateral movement) using AI to generate and refine the technical artefacts. Focus on real engagement tradecraft: phishing and macro-enabled payloads, command-and-control design, implant and agent development. AI is used as a force multiplier for generating lures, VBA/macros, C2 components, and supporting code. All work is conducted in controlled lab environments with clear scope and authorisation.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Red team methodology: objectives, scope, rules of engagement, reporting</li>
+      <li>Phishing and social engineering: lures, pretexting, AI-generated copy and scenarios</li>
+      <li>Macro generation: VBA and Office macros for initial access, AI-assisted generation and obfuscation</li>
+      <li>Command-and-control (C2): design, protocols, implants, and AI-assisted C2 creation</li>
+      <li>Payload and implant development: shellcode, loaders, and LLM-assisted scaffolding</li>
+      <li>Evasion and detection: bypassing AV/EDR, trade-offs when using generated code</li>
+      <li>Post-exploitation and persistence in classical red team contexts</li>
+      <li>Responsible use, authorisation, and controlled environments</li>
+    </ul>
+
+    <h3>Real Red Team Operations</h3>
+    <p>You will run classical red team exercises and use AI to build the artefacts. Exercises focus on full attack chains: phishing and initial access (including macro-based), C2 setup, implant deployment, persistence, and exfiltration or impact. You will use AI to generate phishing content, macros, C2 agents or stagers, and supporting code - then test, refine, and document in lab environments. Typical areas explored include: phishing campaigns with AI-generated lures and macro-enabled documents; VBA and Office macro generation (and obfuscation) with AI assistance; building or adapting C2 frameworks and implants with AI-assisted code generation; payload and loader development with LLM-assisted generation and safe review; end-to-end red team scenario from phishing through to report.</p>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Full red team engagement: phishing (with AI-generated lures and macros), C2, and implant deployment with written report</li>
+      <li>AI-assisted phishing and macro generation toolkit or playbook for authorised testing</li>
+      <li>C2 and implant creation using AI-assisted code generation (lab environment)</li>
+      <li>Macro-enabled initial access chain (document + macro + callback) with AI-generated components</li>
+      <li>Red team tooling suite: phishing, macro generation, and C2 creation with documentation</li>
+    </ul>
+
+    <h3>Ethics and Scope Note</h3>
+    <p>This track is for authorised red teaming only. All exercises and capstones are conducted in controlled environments, with explicit scope and rules of engagement. AI is used to build classical red team artefacts (phishing, macros, C2, implants) within legal and ethical boundaries.</p>
+  </section>
+
+  <!-- PAGE 12: Hands-On AI (last track before Mentorship) -->
+  <section class="page track-page">
+    <i class="fa-solid fa-brain page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">AI That Ships</h1>
+    <p class="page-subtitle">Hands-On AI & Systems Engineering</p>
+    <p class="tagline-block">Build practical AI-powered tools. Work with real models and real data. Design AI systems that solve real problems.</p>
+
+    <h3>Theme</h3>
+    <p>Understanding how modern AI systems are designed and engineered for real-world applications. Focus on building AI-powered tools, working with local models, creating agentic workflows, and designing practical AI systems that interact with real data and applications.</p>
+
+    <h3>Core Topics</h3>
+    <ul>
+      <li>Working with open-source large language models</li>
+      <li>Running local models using tools such as Ollama</li>
+      <li>HuggingFace ecosystem and model usage</li>
+      <li>Retrieval-Augmented Generation (RAG) systems</li>
+      <li>Agentic workflows using frameworks such as LangChain and CrewAI</li>
+      <li>Designing AI pipelines that process documents and structured data</li>
+      <li>Responsible AI concepts and system-level risks</li>
+    </ul>
+
+    <h3>Sample Capstone Projects</h3>
+    <ul>
+      <li>Build a RAG application using local LLMs and vector databases</li>
+      <li>Develop a multi-agent workflow coordinating multiple AI agents</li>
+      <li>Build a local LLM application using Ollama and open-source models</li>
+      <li>Create an AI-powered knowledge assistant using HuggingFace models</li>
+      <li>Design an AI pipeline that processes documents and answers contextual queries</li>
+    </ul>
+
+    <h3>Hardware & Infrastructure Note</h3>
+    <p>This track may require stronger hardware. Depending on the project, students may run models locally or use cloud-based AI platforms. Typical environments: local model execution (e.g. Ollama); systems with sufficient RAM or GPU; cloud platforms such as AWS Bedrock, AWS SageMaker, or similar.</p>
+  </section>
+
+  <!-- PAGE 13: Program, Trainer & Enquiry -->
+  <section class="page page-8">
+    <i class="fa-solid fa-handshake page-icon" aria-hidden="true"></i>
+    <h1 class="page-title">Join the Program</h1>
+    <p class="page-subtitle">Mentorship, Trainer & Enquiry</p>
+    <h2>Limited Mentorship Program</h2>
+    <p>This program is intentionally limited in size. Paid program; monthly participation fee. No stipend. You work on real technical problems; when you are stuck or have something to show, we engage. No one teaches you step by step. You learn the hard way; we discuss, review, and course-correct. That is why the program is limited to a small number of participants.</p>
+    <p>You get:</p>
+    <ul>
+      <li>Discussion after you have attempted the problem</li>
+      <li>Review of your code, projects, and implementation</li>
+      <li>Structured problem tracks to work through</li>
+      <li>Feedback on your approach, debugging, and decisions</li>
+    </ul>
+
+    <h2>Industry Exposure & Guidance</h2>
+    <p>Beyond the programmes, the mentor shares perspective from over two decades in cybersecurity and software: how real engineering and security teams operate, and what matters when you are building or breaking systems.</p>
+    <p>Participants may receive:</p>
+    <ul>
+      <li>Recommendations of important technical books and research material</li>
+      <li>Guidance on useful conferences, communities, and professional learning resources</li>
+      <li>Advice on building strong technical portfolios and project documentation</li>
+      <li>Insight into industry expectations during technical interviews</li>
+    </ul>
+    <p>Students who demonstrate strong effort, curiosity, and technical discipline may also receive guidance on preparing for industry opportunities and career direction.</p>
+
+    <h2>About the Trainer</h2>
+    <p><strong>Founder - Tensor42 Technologies</strong></p>
+    <p>Involved in Cybersecurity and Programming since 1994. Working in the Cybersecurity industry since 2003.</p>
+    <p>Professional experience includes working with a major Fortune 10 organization and a leading global antivirus company. Hands-on exposure across offensive security, malware analysis, application security, and secure systems development. Has worked with 50+ students and professionals who learned by doing and built strong technical foundations.</p>
+
+    <h2>About Tensor42</h2>
+    <p>Tensor42 Technologies builds products in cybersecurity, AI, and software. Active development includes security tooling, red team and defensive platforms, and AI-assisted workflows. The mentorship runs alongside real product work, so participants get exposure to how commercial tools and systems are built.</p>
+
+    <h2>Application & Enquiry</h2>
+    <div class="contact-box">
+      <div class="qr-wrap">
+        <div class="qr-code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;data=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsenthilvelan%2F" alt="QR code: LinkedIn profile" width="100" height="100">
+        </div>
+        <div>
+          <p><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/senthilvelan/">https://www.linkedin.com/in/senthilvelan/</a></p>
+          <p style="margin-top: 0.75rem;"><strong>Email</strong><br>senthilvelantraining@gmail.com</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="gist-line">This is just the gist. Enroll to gain more.</p>
+    <p class="footer-line">This program is designed for students who want real technical depth and practical engineering skills.</p>
+  </section>
+  </main>
+</body>
+</html>
