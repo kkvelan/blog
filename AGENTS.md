@@ -14,3 +14,8 @@ This file is **tracked in git** so harness rules survive environments where `.cu
 Cursor-specific detail: see `.cursor/rules/blog-post-harness.mdc` (same rules; `alwaysApply: true`).
 
 Human-readable summary: [README.md § Author workflow](README.md#author-workflow-preview-first).
+
+## Git commits
+
+- **Do not** put **Cursor**, other editor names, or AI-assistant branding in **commit messages** or **commit bodies**. Describe **what changed** in neutral, human terms (e.g. “Publish mentorship post”, “Fix code block wrapping”).
+- Same rule if the author uses another tool: the history should read like normal engineering notes, not tool advertisements.

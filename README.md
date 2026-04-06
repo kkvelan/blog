@@ -11,4 +11,6 @@ The site is built with Jekyll and GitHub Pages. Posts live in `_posts/`; each po
 
 Do not create `post.md` or `_posts/` until publish time unless you are updating an already-published post.
 
+**Commit messages:** describe changes in plain terms. Do **not** mention Cursor, other tools, or AI in commit subjects or bodies—keep `git log` neutral and professional.
+
 **AI / Cursor:** follow [AGENTS.md](AGENTS.md) and `.cursor/rules/blog-post-harness.mdc`: **never** edit `post.md` or `_posts/` during draft work; only **`preview.html`** until the author explicitly asks to publish or sync.
