@@ -191,6 +191,14 @@ body {
   border-radius: 4px;
 }
 
+/* SVG diagrams (often wide aspect): do not force 100% width; scale down inside column */
+.post-content img[src$=".svg"] {
+  width: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Inline SVG diagrams (e.g. heap figures in posts) */
 .post-content svg {
   max-width: 100%;

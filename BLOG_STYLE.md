@@ -17,6 +17,16 @@ These rules apply to **`_posts/`**, topic **`post.md`**, and **`preview.html`** 
 
 - Plain, simple English first. Short sentences when explaining hardware or the kernel.
 
+## Images in Jekyll posts
+
+- In **`_posts/*.md`** and **`post.md`**, use the **`relative_url`** filter, not raw `site.baseurl` inside Markdown links, so paths resolve on GitHub Pages:
+
+  `![Alt]({{ '/topic-folder/diagram.svg' | relative_url }})`
+
 ## Workflow
 
 - Draft in **`preview.html`** first; sync to **`post.md`** and **`_posts/`** when publishing (see [README.md](README.md)).
+
+## Editor automation (local)
+
+If you use Cursor, a rule file at **`.cursor/rules/blog-content.mdc`** can mirror this document. That folder is **gitignored** here; copy the rules to a new machine by reading this file or recreating the rule.

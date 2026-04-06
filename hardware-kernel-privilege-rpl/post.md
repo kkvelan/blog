@@ -16,7 +16,7 @@ Years ago, on Linux tests, I kept seeing the same end state:
 
 The interesting question is not the exploit string. It is: what changed in the system? Behind that: who is supposed to stop things, the operating system, the processor, or both?
 
-![Two layers: Linux policy vs CPU hardware rules]({{ site.baseurl }}/hardware-kernel-privilege-rpl/layers-hardware-kernel.svg)
+![Two layers: Linux policy vs CPU hardware rules]({{ '/hardware-kernel-privilege-rpl/layers-hardware-kernel.svg' | relative_url }})
 
 ## Two different jobs
 
@@ -38,7 +38,7 @@ After reset, x86-class CPUs start in real mode (8086-style). In that world there
 
 So running code can read and write large parts of the address space, including low memory where structures like the interrupt vector table live, without the CPU saying "that is kernel-only." Classic DOS lived in that kind of world.
 
-![Real mode vs protected mode (simplified)]({{ site.baseurl }}/hardware-kernel-privilege-rpl/real-vs-protected.svg)
+![Real mode vs protected mode (simplified)]({{ '/hardware-kernel-privilege-rpl/real-vs-protected.svg' | relative_url }})
 
 Further reading: [OSDev: Real mode](https://wiki.osdev.org/Real_Mode).
 
@@ -52,7 +52,7 @@ Protected mode introduces tables of segment descriptors (GDT / LDT). Each descri
 
 Programs use a 16-bit selector to pick a descriptor. The low two bits of the selector are the RPL, Requested Privilege Level.
 
-![Segment selector and RPL (concept)]({{ site.baseurl }}/hardware-kernel-privilege-rpl/selector-rpl-bits.svg)
+![Segment selector and RPL (concept)]({{ '/hardware-kernel-privilege-rpl/selector-rpl-bits.svg' | relative_url }})
 
 The CPU combines RPL with CPL (current privilege level, tied to the code segment) and the descriptor's DPL when it decides if a segment load or some far references are legal. In one sentence: RPL is part of how the hardware refuses segment use that would quietly widen privilege.
 
@@ -76,9 +76,9 @@ That thought experiment is not the same as "how I become root on Linux." It expl
 
 On x86 Linux you still hear ring 0 (kernel / supervisor) and ring 3 (user). User code is not supposed to poke kernel memory directly; it asks through syscalls and similar controlled entry.
 
-![Rings (concept) and syscall]({{ site.baseurl }}/hardware-kernel-privilege-rpl/rings-syscall.svg)
+![Rings (concept) and syscall]({{ '/hardware-kernel-privilege-rpl/rings-syscall.svg' | relative_url }})
 
-![Syscall flow at a high level]({{ site.baseurl }}/hardware-kernel-privilege-rpl/syscall-flow.svg)
+![Syscall flow at a high level]({{ '/hardware-kernel-privilege-rpl/syscall-flow.svg' | relative_url }})
 
 Further reading: [OSDev: System calls](https://wiki.osdev.org/System_Calls).
 
@@ -99,7 +99,7 @@ Allow or deny (for example `EPERM`) is decided by kernel logic and data structur
 
 So local privilege escalation that ends with `id` as root is usually not "we fooled RPL." It is kernel trust got broken: memory corruption, logic bugs, credential structures overwritten, execution in kernel context, and similar. `id` changes because the kernel's saved idea of your user id changed.
 
-![Typical LPE outcome: kernel state, not CPU ring magic]({{ site.baseurl }}/hardware-kernel-privilege-rpl/lpe-kernel-state.svg)
+![Typical LPE outcome: kernel state, not CPU ring magic]({{ '/hardware-kernel-privilege-rpl/lpe-kernel-state.svg' | relative_url }})
 
 ## 64-bit Linux today (short honest note)
 
