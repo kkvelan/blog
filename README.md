@@ -4,6 +4,10 @@ This is where I share **blogs**, **learnings**, and **development activities**. 
 
 The site is built with Jekyll and GitHub Pages. Posts live in `_posts/`; each post can have its own folder for images. If you're here to read, head to the [live site](https://kkvelan.github.io/blog/) (or the Pages URL for this repo).
 
+## Blog content style
+
+See **[BLOG_STYLE.md](BLOG_STYLE.md)** (typography and emphasis rules for posts).
+
 ## Author workflow (preview first)
 
 **Rule:** work in **`preview.html` first**. Do **not** create or edit **`post.md`** or **`_posts/`** until you are ready to **publish** (or until you are fixing an already-live post and want the preview to match).
